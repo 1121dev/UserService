@@ -18,7 +18,9 @@ public class UserDto {
     public static UserDto from(User user) {
         UserDto userDto = new UserDto();
         userDto.setEmail(user.getEmail());
-        // set other values when required
+        Set<Role> userRoles = new HashSet<>();
+        userRoles = Set.copyOf(user.getRoles());
+        userDto.setRoles(userRoles);
         return userDto;
     }
 }
